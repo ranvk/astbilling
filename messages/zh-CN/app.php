@@ -21,4 +21,11 @@ return [
     'Whitelists'=> '号码列表',
     'Create Whitelist'=> '新增白名单',
     'Update Whitelist'=> '修改白名单',
+    'Services'=> '服务器列表',
+    'Create Service'=> '新增服务器',
+    'Update Service'=> '修改服务器',
+    'Users'=> '用户列表',
+    'Create User'=> '新增用户',
+    'Update User'=> '修改用户',
+    'Save'=> '保存',
 ];
