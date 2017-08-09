@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Cdr */
+/* @var $model app\models\Whitelist */
 
-$this->title = 'Create Cdr';
-$this->params['breadcrumbs'][] = ['label' => 'Cdrs', 'url' => ['index']];
+$this->title = Yii::t('app', 'Create Whitelist');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Whitelists'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="cdr-create">
+<div class="whitelist-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

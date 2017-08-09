@@ -42,12 +42,12 @@ class Service extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'host' => 'Host',
-            'port' => 'Port',
-            'trunk' => 'Trunk',
-            'status' => 'Status',
-            'remark' => 'Remark',
+            'id' => Yii::t('app', 'ID'),
+            'host' => Yii::t('app', 'Host'),
+            'port' => Yii::t('app', 'Port'),
+            'trunk' => Yii::t('app', 'Trunk'),
+            'status' => Yii::t('app', 'Status'),
+            'remark' => Yii::t('app', 'Remark'),
         ];
     }
 }

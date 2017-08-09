@@ -1,23 +1,20 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
-
+use app\widgets\GridView;
+use yii\widgets\Pjax;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\CdrSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Cdrs';
+$this->title = Yii::t('app', 'Cdrs');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cdr-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
+    <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create Cdr', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -43,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'disposition',
             // 'amaflags',
 
-            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+    <?php Pjax::end(); ?>
 </div>

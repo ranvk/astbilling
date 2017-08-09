@@ -4,20 +4,20 @@ use yii\helpers\Html;
 use app\widgets\GridView;
 use yii\widgets\Pjax;
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\ServiceSearch */
+/* @var $searchModel app\models\WhitelistSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Services');
+$this->title = Yii::t('app', 'Whitelists');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="service-index">
+<div class="whitelist-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Service'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Create Whitelist'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -27,11 +27,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'host',
-            'port',
-            'trunk',
+            'prefixnum',
+            'provider',
             'status',
-            // 'remark:ntext',
+            'remark:ntext',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

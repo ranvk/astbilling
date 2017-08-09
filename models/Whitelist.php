@@ -40,11 +40,11 @@ class Whitelist extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'prefixnum' => 'Prefixnum',
-            'provider' => 'Provider',
-            'status' => 'Status',
-            'remark' => 'Remark',
+            'id' => Yii::t('app', 'ID'),
+            'prefixnum' => Yii::t('app', 'Prefixnum'),
+            'provider' => Yii::t('app', 'Provider'),
+            'status' => Yii::t('app', 'Status'),
+            'remark' => Yii::t('app', 'Remark'),
         ];
     }
 }

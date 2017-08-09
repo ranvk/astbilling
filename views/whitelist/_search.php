@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\PhoneSearch */
+/* @var $model app\models\WhitelistSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="phone-search">
+<div class="whitelist-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -20,9 +20,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'number') ?>
+    <?= $form->field($model, 'prefixnum') ?>
 
-    <?= $form->field($model, 'type') ?>
+    <?= $form->field($model, 'provider') ?>
 
     <?= $form->field($model, 'status') ?>
 

@@ -3,14 +3,14 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\user;
+use app\models\User;
 use app\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * UserController implements the CRUD actions for user model.
+ * UserController implements the CRUD actions for User model.
  */
 class UserController extends Controller
 {
@@ -30,7 +30,7 @@ class UserController extends Controller
     }
 
     /**
-     * Lists all user models.
+     * Lists all User models.
      * @return mixed
      */
     public function actionIndex()
@@ -45,7 +45,7 @@ class UserController extends Controller
     }
 
     /**
-     * Displays a single user model.
+     * Displays a single User model.
      * @param integer $id
      * @return mixed
      */
@@ -57,13 +57,13 @@ class UserController extends Controller
     }
 
     /**
-     * Creates a new user model.
+     * Creates a new User model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new user();
+        $model = new User();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -75,7 +75,7 @@ class UserController extends Controller
     }
 
     /**
-     * Updates an existing user model.
+     * Updates an existing User model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -94,7 +94,7 @@ class UserController extends Controller
     }
 
     /**
-     * Deletes an existing user model.
+     * Deletes an existing User model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class UserController extends Controller
     }
 
     /**
-     * Finds the user model based on its primary key value.
+     * Finds the User model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return user the loaded model
+     * @return User the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = user::findOne($id)) !== null) {
+        if (($model = User::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

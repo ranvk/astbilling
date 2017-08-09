@@ -3,16 +3,16 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Service */
+/* @var $model app\models\Whitelist */
 
-$this->title = Yii::t('app', 'Update Service: {nameAttribute}', [
+$this->title = Yii::t('app', 'Update Whitelist: {nameAttribute}', [
     'nameAttribute' => $model->id,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Services'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Whitelists'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
-<div class="service-update">
+<div class="whitelist-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

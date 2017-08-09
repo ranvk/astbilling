@@ -42,11 +42,11 @@ class Phone extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'number' => 'Number',
-            'type' => 'Type',
-            'status' => 'Status',
-            'remark' => 'Remark',
+            'id' => Yii::t('app', 'ID'),
+            'number' => Yii::t('app', 'Number'),
+            'type' => Yii::t('app', 'Type'),
+            'status' => Yii::t('app', 'Status'),
+            'remark' => Yii::t('app', 'Remark'),
         ];
     }
 
