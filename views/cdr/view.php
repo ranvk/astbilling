@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\user */
+/* @var $model app\models\Cdr */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Cdrs', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="user-view">
+<div class="cdr-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -29,16 +29,22 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'username',
-            'auth_key',
-            'password_hash',
-            'password_reset_token',
-            'email:email',
-            'type',
-            'float',
-            'status',
-            'created_at',
-            'updated_at',
+            'uniqueid',
+            'userfield',
+            'accountcode',
+            'src',
+            'dst',
+            'dcontext',
+            'clid',
+            'channel',
+            'dstchannel',
+            'lastapp',
+            'lastdata',
+            'calldate',
+            'duration',
+            'billsec',
+            'disposition',
+            'amaflags',
         ],
     ]) ?>
 

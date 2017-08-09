@@ -22,6 +22,7 @@ class m170805_025108_create_whitelist_table extends Migration
             'id' => $this->primaryKey(),
             'prefixnum' => $this->integer()->comment('呼入前缀'),
             'provider' => $this->smallInteger(1)->notNull()->defaultValue(0)->comment('供应商'),
+            'status' => $this->smallInteger(1)->defaultValue(0)->notNull()->comment('状态'),
             'remark'=> $this->text()->comment('备注'),
         ],$tableOptions);
     }

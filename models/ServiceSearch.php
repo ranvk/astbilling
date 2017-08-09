@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\user;
+use app\models\Service;
 
 /**
- * UserSearch represents the model behind the search form of `app\models\user`.
+ * ServiceSearch represents the model behind the search form of `app\models\Service`.
  */
-class UserSearch extends user
+class ServiceSearch extends Service
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class UserSearch extends user
     public function rules()
     {
         return [
-            [['id', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['username', 'auth_key', 'password_hash', 'password_reset_token', 'email', 'type', 'float'], 'safe'],
+            [['id', 'port', 'trunk', 'status'], 'integer'],
+            [['host', 'remark'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class UserSearch extends user
      */
     public function search($params)
     {
-        $query = user::find();
+        $query = Service::find();
 
         // add conditions that should always apply here
 
@@ -60,18 +60,13 @@ class UserSearch extends user
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'port' => $this->port,
+            'trunk' => $this->trunk,
             'status' => $this->status,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'username', $this->username])
-            ->andFilterWhere(['like', 'auth_key', $this->auth_key])
-            ->andFilterWhere(['like', 'password_hash', $this->password_hash])
-            ->andFilterWhere(['like', 'password_reset_token', $this->password_reset_token])
-            ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'type', $this->type])
-            ->andFilterWhere(['like', 'float', $this->float]);
+        $query->andFilterWhere(['like', 'host', $this->host])
+            ->andFilterWhere(['like', 'remark', $this->remark]);
 
         return $dataProvider;
     }

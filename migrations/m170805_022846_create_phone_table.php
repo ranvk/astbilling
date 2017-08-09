@@ -24,6 +24,7 @@ class m170805_022846_create_phone_table extends Migration
             'id' => $this->primaryKey(),
             'number' => $this->integer()->comment('中继号码'),
             'type'=>$this->smallInteger(1)->notNull()->defaultValue(0)->comment('类型'),
+            'status' => $this->smallInteger(1)->defaultValue(0)->notNull()->comment('状态'),
             'remark'=> $this->text()->comment('备注'),
         ],$tableOptions);
 

@@ -2,7 +2,8 @@
 
 namespace app\models;
 
-use yii\base\NotSupportedException;
+use Yii;
+use yii\web\IdentityInterface;
 
 /**
  * This is the model class for table "user".
@@ -13,12 +14,15 @@ use yii\base\NotSupportedException;
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
+ * @property string $type 用户类型
+ * @property string $float 计时浮动
  * @property int $status
  * @property int $created_at
  * @property int $updated_at
+ *
+ * @property UserPhone[] $userPhones
  */
-
-class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
+class User extends \yii\db\ActiveRecord implements IdentityInterface
 {
     /**
      * @inheritdoc
@@ -36,7 +40,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         return [
             [['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
             [['status', 'created_at', 'updated_at'], 'integer'],
-            [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
+            [['username', 'password_hash', 'password_reset_token', 'email', 'type', 'float'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
             [['username'], 'unique'],
             [['email'], 'unique'],
@@ -56,10 +60,20 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             'password_hash' => 'Password Hash',
             'password_reset_token' => 'Password Reset Token',
             'email' => 'Email',
+            'type' => 'Type',
+            'float' => 'Float',
             'status' => 'Status',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUserPhones()
+    {
+        return $this->hasMany(UserPhone::className(), ['userid' => 'id']);
     }
 
 
@@ -104,5 +118,4 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return $this->authKey === $authKey;
     }
-
 }

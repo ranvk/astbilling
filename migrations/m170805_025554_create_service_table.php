@@ -23,6 +23,7 @@ class m170805_025554_create_service_table extends Migration
             'host' => $this->string()->comment('ip'),
             'port' => $this->integer(5)->comment('socket端口'),
             'trunk' => $this->integer(2)->comment('中继数量'),
+            'status' => $this->smallInteger(1)->defaultValue(0)->notNull()->comment('状态'),
             'remark' => $this->text()->comment('备注'),
         ],$tableOptions);
     }
