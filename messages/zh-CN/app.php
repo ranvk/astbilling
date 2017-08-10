@@ -28,4 +28,8 @@ return [
     'Create User'=> '新增用户',
     'Update User'=> '修改用户',
     'Save'=> '保存',
+    'Src'=> '主叫号',
+    'Dst'=> '被叫号',
+    'Calldate'=> '开始时间',
+    'Billsec'=> '计费时长',
 ];

@@ -23,6 +23,11 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'yougao',
         ],
+        'formatter' => [
+            'dateFormat' => 'php:Y-m-d',
+            'datetimeFormat' => "php:Y-m-d H:i:s",
+            'timeFormat' => 'php:H:i:s',
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],

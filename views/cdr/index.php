@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use app\widgets\GridView;
 use yii\widgets\Pjax;
+
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\CdrSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -21,25 +22,23 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'uniqueid',
-            'userfield',
-            'accountcode',
             'src',
-             'dst',
-             'dcontext',
-             'clid',
-             'channel',
-             'dstchannel',
-             'lastapp',
-             'lastdata',
-             'calldate',
-             'duration',
-             'billsec',
-             'disposition',
-             'amaflags',
-
+            [
+                'label' => '号码归属地',
+                'attribute' => 'src',
+                'value' => 'srcArea',
+            ],
+            [
+                'label' => '所属运营商',
+                'attribute' => 'src',
+                'value' => 'srcTelecom',
+            ],
+            [
+                'attribute' => 'dst',
+                'value' => 'dstnum',
+            ],
+            'calldate',
+            'billsec',
         ],
     ]); ?>
     <?php Pjax::end(); ?>

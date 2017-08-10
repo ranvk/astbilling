@@ -77,4 +77,49 @@ class Cdr extends \yii\db\ActiveRecord
             'amaflags' => Yii::t('app', 'Amaflags'),
         ];
     }
+
+    public function getDstnum()
+    {
+        return strlen($this->dst) > 5 && is_numeric($this->dst) ? $this->dst : $this->accountcode;
+    }
+
+    public function getSrcArea()
+    {
+        $srcArea = '';
+        if (!empty($this->src)) {
+            $mobile = substr($this->src, -11);
+            $num = substr($mobile, 0, 7);
+
+            $area = Area::findOne(['number' => $num]);
+            if ($area) {
+                $srcArea = $area->area . ' ' . $area->type;
+            }
+        }
+        return $srcArea;
+    }
+
+    public function getSrcTelecom()
+    {
+        $srcTelecom = 'N/A';
+        if (!empty($this->src)) {
+            $pre = substr(substr($this->src, -11), 0, 3);
+            $data = [
+                '中国移动' => [134, 135, 136, 137, 138, 139, 150, 151, 152, 157, 158, 159, 187, 188, 147, 182, 183],
+                '中国电信' => [133, 153, 180, 189, 181],
+                '中国联通' => [130, 131, 132, 155, 156, 185, 186],
+                '其它' => [0, 2, 3, 4, 5, 6, 7, 8, 9],
+            ];
+
+            if (in_array($pre, $data['中国移动'])) {
+                $srcTelecom = '中国移动';
+            } elseif (in_array($pre, $data['中国电信'])) {
+                $srcTelecom = '中国电信';
+            } elseif (in_array($pre, $data['中国联通'])) {
+                $srcTelecom = '中国联通';
+            } else {
+                $srcTelecom = '其它';
+            }
+        }
+        return $srcTelecom;
+    }
 }
