@@ -113,3 +113,15 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+.main-header .logo{
+    width:170px;
+}
+.main-sidebar{
+    width:170px;
+}
+.main-header .navbar{
+    margin-left: 170px;
+}
+.content-wrapper, .main-footer{
+    margin-left: 170px;
+}

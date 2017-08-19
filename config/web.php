@@ -8,6 +8,7 @@ $config = [
     'bootstrap' => ['log'],
     'language' => 'zh-CN',
     'timeZone' => 'Asia/Chongqing',
+    'name' => '英语项目',
     'modules' => [
         'gridview' =>  [
             'class' => '\kartik\grid\Module'
