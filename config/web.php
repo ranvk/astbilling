@@ -57,7 +57,7 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-
+        'dbast' => require(__DIR__ . '/dbast.php'),
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
