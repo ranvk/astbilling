@@ -5,6 +5,8 @@ namespace app\controllers;
 use Yii;
 use app\models\User;
 use app\models\UserSearch;
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -20,6 +22,12 @@ class UserController extends Controller
     public function behaviors()
     {
         return [
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created_at',
+                'updatedAtAttribute' => 'updated_at',
+                'value' => time(),
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

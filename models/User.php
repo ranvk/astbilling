@@ -25,6 +25,9 @@ use yii\web\IdentityInterface;
  */
 class User extends \yii\db\ActiveRecord implements IdentityInterface
 {
+    const STATUS_ON = 0; //启用
+    const STATUS_OFF = 1; //禁用
+
     /**
      * @inheritdoc
      */
@@ -102,6 +105,21 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function getId()
     {
         return $this->getPrimaryKey();
+    }
+
+    /**
+     * Finds user by username
+     *
+     * @param string $username
+     * @return static|null
+     */
+    public static function findByUsername($username)
+    {
+        if ($user = self::findOne(['username' => $username])) {
+            return $user;
+        }
+
+        return null;
     }
 
     /**
