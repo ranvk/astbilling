@@ -26,6 +26,13 @@ class SiteController extends Controller
                         'allow' => true,
                         'roles' => ['@'],
                     ],
+                    [
+                        'actions' => ['update'],
+                        'matchCallback' => function ($rule, $action) {
+                            return Yii::$app->user->id == 1 ? true : false;
+                        },
+                        'allow' => true,
+                    ],
                 ],
             ],
             'verbs' => [
