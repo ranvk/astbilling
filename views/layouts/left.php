@@ -8,6 +8,7 @@
                 'options' => ['class' => 'sidebar-menu'],
                 'items' => [
                     ['label' => '菜单列表', 'options' => ['class' => 'header']],
+                    ['label' => '首页', 'icon' => 'file-code-o', 'url' => ['/site']],
                     ['label' => '通话记录', 'icon' => 'file-code-o', 'url' => ['/cdr']],
                     ['label' => '中继号码', 'icon' => 'file-code-o', 'url' => ['/phone']],
                     ['label' => '服务器集群', 'icon' => 'file-code-o', 'url' => ['/service']],
